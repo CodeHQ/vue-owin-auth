@@ -8,12 +8,12 @@
 
 const OwinAuth = require('./owin-auth');
 
-const auth = {};
+const vueOwinAuth = {};
 /**
  * Plugin API
  */
 // eslint-disable-next-line func-names
-auth.install = function (Vue, options) {
+vueOwinAuth.install = function (Vue, options) {
   Vue.$auth = new OwinAuth(options);
 };
 
@@ -21,7 +21,7 @@ auth.install = function (Vue, options) {
  * Auto install
  */
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(auth);
+  window.Vue.use(vueOwinAuth);
 }
 
-export default auth;
+export default vueOwinAuth;

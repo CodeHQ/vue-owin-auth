@@ -15,11 +15,7 @@ const stringify = require('json-stable-stringify');
 
 class AspnetAuth {
   constructor(options) {
-    const defaults = {
-      url: '',
-      client_id: options.clientId,
-      client_secret: options.secret,
-    };
+    const defaults = {};
     this.options = Object.assign(defaults, options);
 
     if (this.options.url.length === 0) {
