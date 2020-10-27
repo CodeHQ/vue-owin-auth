@@ -1,0 +1,33 @@
+{
+  "name": "vue-owin-auth",
+  "version": "0.0.1",
+  "description": "> A vue.js plugin",
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "browser-cookies": "^1.2.0",
+    "eslint": "^7.12.1",
+    "json-stable-stringify": "^1.0.1",
+    "parse-json": "^5.1.0",
+    "qs": "^6.9.4"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeHQ/vue-owin-auth.git"
+  },
+  "author": "craigp@codehq.co.za",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeHQ/vue-owin-auth/issues"
+  },
+  "homepage": "https://github.com/CodeHQ/vue-owin-auth#readme"
+}
