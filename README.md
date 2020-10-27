@@ -1,18 +1,29 @@
 # vue-owin-auth
 
-> A vue.js plugin
-
-### Development Setup
-
-``` bash
-# install deps
+## Project setup
+```
 npm install
+```
 
-# build library
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
 npm run build
+```
 
-## License
+### Run your unit tests
+```
+npm run test:unit
+```
 
-[MIT](http://opensource.org/licenses/MIT)
+### Lints and fixes files
+```
+npm run lint
+```
 
-Copyright (c) 2020 Code HQ
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

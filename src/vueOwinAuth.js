@@ -6,15 +6,14 @@
   * @license MIT
   */
 
-const AspnetAuth = require('./owin-auth');
+import AspnetAuth from './AspnetAuth';
 
 const vueOwinAuth = {};
-/**
- * Plugin API
- */
+
 // eslint-disable-next-line func-names
 vueOwinAuth.install = function (Vue, options) {
-  Vue.$auth = new AspnetAuth(options);
+  AspnetAuth.init(options);
+  Vue.$auth = AspnetAuth;
 };
 
 /**

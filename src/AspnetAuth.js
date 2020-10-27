@@ -12,8 +12,8 @@ const parseJson = require('parse-json');
 const qs = require('qs');
 const stringify = require('json-stable-stringify');
 
-class AspnetAuth {
-  constructor(options) {
+const AspnetAuth = {
+  init(options) {
     const defaults = {
       url: '',
       client_id: options.clientId,
@@ -32,14 +32,14 @@ class AspnetAuth {
 
     // try and load from cookies
     this.fillAuth();
-  }
+  },
 
   setupAxios(val) {
     // setup axios
-    this.axios.interceptors.response.use(null, error => Promise.reject(error));
+    this.axios.interceptors.response.use(null, (error) => Promise.reject(error));
     this.axios.defaults.headers.common.Authorization = `Bearer ${val.access_token}`;
     return axios;
-  }
+  },
 
   register(username, email, password) {
     // strange quirk where the baseURL is not persisted
@@ -49,7 +49,7 @@ class AspnetAuth {
       Password: password,
       Email: email,
     });
-  }
+  },
 
   /**
    * Register a new user user with an organization role.
@@ -73,7 +73,7 @@ class AspnetAuth {
       Email: email,
       Role: role,
     });
-  }
+  },
 
   forgot(email) {
     // strange quirk where the baseURL is not persisted
@@ -81,7 +81,7 @@ class AspnetAuth {
     return this.http.post('/api/account/forgotpassword', {
       email,
     });
-  }
+  },
 
   login(username, password) {
     // strange quirk where the baseURL is not persisted
@@ -98,7 +98,7 @@ class AspnetAuth {
         this.fillAuth();
         return response;
       });
-  }
+  },
 
   loginTwoFactor(username, password, code) {
     // strange quirk where the baseURL is not persisted
@@ -116,7 +116,7 @@ class AspnetAuth {
         this.fillAuth();
         return response;
       });
-  }
+  },
 
   loginExternal(tokenRequest) {
     // strange quirk where the baseURL is not persisted
@@ -127,7 +127,7 @@ class AspnetAuth {
         this.fillAuth();
         return response;
       });
-  }
+  },
 
   logout() {
     // delete the cookie
@@ -136,7 +136,7 @@ class AspnetAuth {
     // clear cached values
     this.authentication = null;
     return true;
-  }
+  },
 
   refreshToken() {
     const tokenRequest = {
@@ -153,17 +153,17 @@ class AspnetAuth {
         this.fillAuth();
         return response;
       });
-  }
+  },
 
   saveAuth(result) {
     cookies.set(this.cookieName, stringify(result), {
       secure: true,
     });
-  }
+  },
 
   readAuth() {
     return cookies.get(this.cookieName);
-  }
+  },
 
   fillAuth() {
     const authStr = this.readAuth();
@@ -171,7 +171,7 @@ class AspnetAuth {
       this.authentication = parseJson(authStr);
       this.setupAxios(authStr);
     }
-  }
-}
+  },
+};
 
 export default AspnetAuth;

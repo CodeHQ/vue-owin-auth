@@ -1,33 +1,33 @@
 {
   "name": "vue-owin-auth",
-  "version": "0.0.1",
-  "description": "> A vue.js plugin",
-  "main": "src/index.js",
+  "version": "0.1.0",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
   "dependencies": {
     "axios": "^0.21.0",
     "browser-cookies": "^1.2.0",
-    "eslint": "^7.12.1",
+    "core-js": "^3.6.5",
     "json-stable-stringify": "^1.0.1",
     "parse-json": "^5.1.0",
-    "qs": "^6.9.4"
+    "qs": "^6.9.4",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.21.5"
-  },
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeHQ/vue-owin-auth.git"
-  },
-  "author": "craigp@codehq.co.za",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CodeHQ/vue-owin-auth/issues"
-  },
-  "homepage": "https://github.com/CodeHQ/vue-owin-auth#readme"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-mocha": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.1.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }
