@@ -6,7 +6,6 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
 const axios = require('axios');
 const cookies = require('browser-cookies');
 const parseJson = require('parse-json');
@@ -15,7 +14,11 @@ const stringify = require('json-stable-stringify');
 
 class AspnetAuth {
   constructor(options) {
-    const defaults = {};
+    const defaults = {
+      url: '',
+      client_id: options.clientId,
+      client_secret: options.secret,
+    };
     this.options = Object.assign(defaults, options);
 
     if (this.options.url.length === 0) {
@@ -33,7 +36,7 @@ class AspnetAuth {
 
   setupAxios(val) {
     // setup axios
-    this.axios.interceptors.response.use(null, (error) => Promise.reject(error));
+    this.axios.interceptors.response.use(null, error => Promise.reject(error));
     this.axios.defaults.headers.common.Authorization = `Bearer ${val.access_token}`;
     return axios;
   }
