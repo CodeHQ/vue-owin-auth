@@ -1,0 +1,12 @@
+assembly-versioning-scheme: MajorMinorPatch
+commit-message-incrementing: MergeMessageOnly
+mode: Mainline
+branches:
+  develop:
+    is-mainline: true
+    tag: 'beta'
+    increment: Patch
+    regex: develop$
+  master:
+    regex: ^master$|^main$
+    increment: Minor
