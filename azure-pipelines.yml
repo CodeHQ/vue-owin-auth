@@ -9,7 +9,7 @@ pool:
 steps:
 - task: Cache@2
   inputs:
-    key: 'yarn.lock'
+    key: 'package-lock.json'
     path: 'node_modules'
 
 - task: GitVersion@5
