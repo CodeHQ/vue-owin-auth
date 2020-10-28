@@ -13,7 +13,7 @@ const vueOwinAuth = {};
 // eslint-disable-next-line func-names
 vueOwinAuth.install = function (Vue, options) {
   AspnetAuth.init(options);
-  Vue.$auth = AspnetAuth;
+  Vue.prototype.$auth = AspnetAuth;
 };
 
 /**

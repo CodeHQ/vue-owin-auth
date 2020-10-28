@@ -28,6 +28,7 @@ const AspnetAuth = {
     this.authentication = null;
     this.cookieName = 'apnetAuth';
     this.axios = axios;
+    this.http = axios;
     axios.defaults.baseURL = this.options.url;
 
     // try and load from cookies
