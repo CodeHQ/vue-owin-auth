@@ -1,5 +1,5 @@
 {
-  "name": "vue-owin-auth",
+  "name": "@codehq/vue-owin-auth",
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
