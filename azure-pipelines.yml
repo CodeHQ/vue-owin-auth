@@ -43,5 +43,4 @@ steps:
 - task: Npm@1
   inputs:
     command: 'publish'
-    publishRegistry: 'useFeed'
-    publishFeed: '0e68686d-6aa7-4551-b054-a18fbacd1217'
+    publishEndpoint: 'Code HQ GitHub NPM'
