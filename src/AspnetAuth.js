@@ -7,10 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 const axios = require('axios');
-const cookies = require('browser-cookies');
-const parseJson = require('parse-json');
 const qs = require('qs');
-const stringify = require('json-stable-stringify');
 
 const AspnetAuth = {
   init(options) {
@@ -24,15 +21,9 @@ const AspnetAuth = {
     if (this.options.url.length === 0) {
       throw this.options;
     }
-
-    this.authentication = null;
-    this.cookieName = 'apnetAuth';
     this.axios = axios;
     this.http = axios;
     axios.defaults.baseURL = this.options.url;
-
-    // try and load from cookies
-    this.fillAuth();
   },
 
   setupAxios(val) {
@@ -94,11 +85,7 @@ const AspnetAuth = {
       client_secret: this.options.client_secret,
       grant_type: 'password',
     }))
-      .then((response) => {
-        this.saveAuth(response.data);
-        this.fillAuth();
-        return response;
-      });
+      .then((response) => response);
   },
 
   loginTwoFactor(username, password, code) {
@@ -130,48 +117,17 @@ const AspnetAuth = {
       });
   },
 
-  logout() {
-    // delete the cookie
-    cookies.erase(this.cookieName);
-
-    // clear cached values
-    this.authentication = null;
-    return true;
-  },
-
-  refreshToken() {
+  refreshToken(refreshToken) {
     const tokenRequest = {
       grant_type: 'refresh_token',
-      refresh_token: this.authentication.refresh_token,
+      refresh_token: refreshToken,
       client_id: this.options.client_id,
       client_secret: this.options.client_secret,
     };
     // strange quirk where the baseURL is not persisted
     axios.defaults.baseURL = this.options.url;
     return this.http.post('/token', qs.stringify(tokenRequest))
-      .then((response) => {
-        this.saveAuth(response);
-        this.fillAuth();
-        return response;
-      });
-  },
-
-  saveAuth(result) {
-    cookies.set(this.cookieName, stringify(result), {
-      secure: true,
-    });
-  },
-
-  readAuth() {
-    return cookies.get(this.cookieName);
-  },
-
-  fillAuth() {
-    const authStr = this.readAuth();
-    if (authStr) {
-      this.authentication = parseJson(authStr);
-      this.setupAxios(authStr);
-    }
+      .then((response) => response);
   },
 };
 
