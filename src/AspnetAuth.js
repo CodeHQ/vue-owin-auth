@@ -78,6 +78,7 @@ const AspnetAuth = {
   login(username, password) {
     // strange quirk where the baseURL is not persisted
     axios.defaults.baseURL = this.options.url;
+    axios.defaults.timeout = 20000;
     return this.http.post('/token', qs.stringify({
       username,
       password,
