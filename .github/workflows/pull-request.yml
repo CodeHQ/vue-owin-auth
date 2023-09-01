@@ -43,18 +43,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      # - name: e2e test
-      #   run: npm run test:e2e:ci
-      #   continue-on-error: true
+      - name: Run tests
+        run: npm run test:unit
 
-      # - name: Unit tests
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: UnitTestResults
-      #     path: test-results/*.xml
+      - name: Unit tests
+        uses: actions/upload-artifact@v2
+        with:
+          name: UnitTestResults
+          path: test-results/*.xml
 
-      # - name: Publish test results
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: CodeCoverage
-      #     path: $(System.DefaultWorkingDirectory)/**/*coverage.xml
+      - name: Publish test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: CodeCoverage
+          path: $(System.DefaultWorkingDirectory)/**/*coverage.xml
