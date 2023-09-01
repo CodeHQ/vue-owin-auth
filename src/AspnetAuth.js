@@ -30,7 +30,7 @@ const AspnetAuth = {
   setupAxios(val) {
     // setup axios
     this.axios.interceptors.response.use(null, (error) => Promise.reject(error));
-    this.axios.defaults.headers.common.Authorization = `Bearer ${val.access_token}`;
+    this.axios.defaults.headers.Authorization = `Bearer ${val.access_token}`;
     return axios;
   },
 
