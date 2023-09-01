@@ -1,0 +1,99 @@
+{
+	"build": {
+		"dockerfile": "./Dockerfile",
+		"context": "."
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"installOhMyZshConfig": true,
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"installDirectlyFromGitHubRelease": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"version": "16",
+			"nvmVersion": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/vue-cli:2": {
+			"version": "latest"
+		}
+	},
+	"postCreateCommand": "git fetch --all && npm install && npm run cy:verify",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			"extensions": [
+				"alefragnani.project-manager",
+				"bierner.github-markdown-preview",
+				"christian-kohler.npm-intellisense",
+				"christian-kohler.path-intellisense",
+				"codezombiech.gitignore",
+				"dbaeumer.vscode-eslint",
+				"dkundel.vscode-npm-source",
+				"donjayamanne.git-extension-pack",
+				"donjayamanne.githistory",
+				"DotJoshJohnson.xml",
+				"eamodio.gitlens",
+				"ecmel.vscode-html-css",
+				"EditorConfig.EditorConfig",
+				"equinusocio.vsc-material-theme-icons",
+				"esbenp.prettier-vscode",
+				"fabianlauer.vs-code-xml-format",
+				"fabiospampinato.vscode-open-in-github",
+				"fnando.linter",
+				"formulahendry.auto-close-tag",
+				"formulahendry.auto-rename-tag",
+				"fractalbrew.backticks",
+				"GitHub.codespaces",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.copilot-labs",
+				"GitHub.remotehub",
+				"GitHub.vscode-pull-request-github",
+				"idered.npm",
+				"mhutchie.git-graph",
+				"mikestead.dotenv",
+				"MisterJ.vue-volar-extention-pack",
+				"ms-vscode.remote-repositories",
+				"NicholasHsiang.vscode-vue2-snippets",
+				"peregrineplatform.ms-edge-launcher",
+				"PKief.material-icon-theme",
+				"rangav.vscode-thunder-client",
+				"redhat.vscode-yaml",
+				"sdras.vue-vscode-snippets",
+				"shawnzhong.system-task-manager",
+				"Shelex.vscode-cy-helper",
+				"sibiraj-s.vscode-scss-formatter",
+				"SimonSiefke.svg-preview",
+				"steoates.autoimport",
+				"syler.sass-indented",
+				"traBpUkciP.vscode-npm-scripts",
+				"vincaslt.highlight-matching-tag",
+				"vscode-icons-team.vscode-icons",
+				"Vue.volar",
+				"Vue.vscode-typescript-vue-plugin",
+				"vuetifyjs.vuetify-vscode",
+				"Wattenberger.footsteps",
+				"Wscats.vue",
+				"xabikos.JavaScriptSnippets",
+				"ziyasal.vscode-open-in-github",
+				"me-dutour-mathieu.vscode-github-actions"
+			]
+		}
+	}
+}
