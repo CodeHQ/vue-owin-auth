@@ -8,12 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.5.0",
     "browser-cookies": "^1.2.0",
     "core-js": "^3.15.2",
     "json-stable-stringify": "^1.0.1",
     "parse-json": "^5.2.0",
-    "qs": "^6.10.1",
+    "qs": "^6.11.2",
     "vue": "^2.6.14"
   },
   "devDependencies": {

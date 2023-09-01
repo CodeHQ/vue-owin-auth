@@ -23,7 +23,8 @@ const AspnetAuth = {
     }
     this.axios = axios;
     this.http = axios;
-    axios.defaults.baseURL = this.options.url;
+    console.debug(this.options);
+    axios.baseURL = this.options.url;
   },
 
   setupAxios(val) {
