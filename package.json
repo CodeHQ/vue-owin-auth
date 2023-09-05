@@ -14,7 +14,7 @@
     "json-stable-stringify": "^1.0.1",
     "parse-json": "^5.2.0",
     "qs": "^6.11.2",
-    "vue": "^2.6.14"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.13",
