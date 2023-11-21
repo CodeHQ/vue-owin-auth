@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^1.5.0",
     "browser-cookies": "^1.2.0",
-    "core-js": "^3.15.2",
+    "core-js": "^3.33.3",
     "json-stable-stringify": "^1.0.1",
     "parse-json": "^7.1.0",
     "qs": "^6.11.2",
